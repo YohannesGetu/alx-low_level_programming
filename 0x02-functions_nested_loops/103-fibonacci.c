@@ -1,25 +1,32 @@
 #include <stdio.h>
 
 /**
- * main - Prints the sum of all multiples of 3 or 5 up to 1024
+ * main- prints all fibanaccie nums
+ *       starting with the second 1
  *
- * Return: Always (Success)
+ * Return: alwayse 0
+ *
+ * does- not excede 4000000
  */
+
 int main(void)
 {
-	int i;
-	int z = 0;
+	long int a, b, c, d;
 
-	while (i < 1024)
+	a = 0;
+	b = 1;
+	c = 0;
+	d = 0;
+	while (1)
 	{
-		if ((i % 3 == 0) || (i % 5 == 0))
-		{
-			z += i;
-		}
-
-		i++;
+		c = a + b;
+		a = b;
+		b = c;
+		if (c > 4000000)
+			break;
+		if ((c % 2) == 0)
+			d += c;
 	}
-
-	printf("%d\n", z);
+	printf("%ld\n", d);
 	return (0);
 }
