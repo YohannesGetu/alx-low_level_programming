@@ -1,0 +1,26 @@
+#include "holberton.h"
+
+/**
+ * puts_half -  prints every other character of a string
+ * @str: pointer of char
+ * Return: void
+ */
+void puts_half(char *str)
+{
+	int i = 0;
+	int j = 0;
+	int h = 0;
+
+	while (str[i] != '\0')
+		i++;
+	h = i / 2;
+	if (i % 2 != 0)
+		h++;
+	while (j <= h)
+	{
+		_putchar(str[i + j]);
+		j++;
+	}
+
+	_putchar('\n');
+}
