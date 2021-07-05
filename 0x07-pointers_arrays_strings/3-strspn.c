@@ -1,31 +1,31 @@
 #include "holberton.h"
-#include <stdio.h>
 
 /**
- * _strspn - gets the length of a prefix substring.
- * @s: character to print
- * @accept: character
- * Return: i.
+ * _strspn - gets the length of a prefix substring
+ * @s: string to be searched
+ * @accept: bytes to be accepted
+ * Return: number to bytes in the initial segment of s
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	int count;
+	unsigned int res = 0;
+	int i, foundChar;
 
-	while (*s != '\0')
+	while (*s)
 	{
-		while (*accept != '\0')
+		for (i = 0; accept[i]; i++)
 		{
-			if (*s == *accept)
+			foundChar = 0;
+			if (*s == accept[i])
+			{
+				res++;
+				foundChar = 1;
 				break;
-			count++;
-			accept++;
-
-			s++;
-
+			}
 		}
-		if (*accept == '\0')
+		if (!foundChar)
 			break;
-
+		s++;
 	}
-	return (count + 1);
+	return (res);
 }
