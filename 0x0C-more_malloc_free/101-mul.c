@@ -1,4 +1,3 @@
-  
 #include "holberton.h"
 /**
  * _isdigit - this function says if a character is a digit
@@ -10,16 +9,16 @@
  */
 int _isdigit(char *n)
 {
-  int i;
+	int i;
 
-  i = 0;
-  while (*(n + i) != '\0')
-    {
-      if (*(n + i) < '0' || *(n + i) > '9')
-	return (0);
-      i++;
-    }
-  return (1);
+	i = 0;
+	while (*(n + i) != '\0')
+	{
+		if (*(n + i) < '0' || *(n + i) > '9')
+		return (0);
+		i++;
+	}
+	return (1);
 }
 /**
  * _strlen  - this functions prints the lenght of a string
@@ -31,13 +30,13 @@ int _isdigit(char *n)
  */
 int _strlen(char *s)
 {
-  if (*s != '\0')
-    {
-      s++;
-      return (1 + _strlen(s));
-    }
-  else
-    return (0);
+	if (*s != '\0')
+	{
+		s++;
+		return (1 + _strlen(s));
+	}
+	else
+		return (0);
 }
 /**
  * main - the entry point
@@ -50,44 +49,44 @@ int _strlen(char *s)
  */
 int main(int argc, char *argv[])
 {
-  int p, res, len, n1, n2, i, j;
-  int *total;
+	int p, res, len, n1, n2, i, j;
+	int *total;
 
-  if (argc < 3 || argc > 3 || !(_isdigit(argv[1])) || !(_isdigit(argv[2])))
-    puts("Error"), exit(98);
-  if (argv[1][0] == '0' || argv[2][0] == '0')
-    {
-      printf("0\n");
-      return (0);
-    }
-  n1 = _strlen(argv[1]), n2 = _strlen(argv[2]);
-  len = n1 + n2;
-  total = calloc(len, sizeof(int *));
-  if (total == NULL)
-    puts("Error"), exit(98);
-  for (i = (n2 - 1); i > -1; i--)
-    {
-      res = 0;
-      for (j = (n1 - 1); j > -1; j--)
+	if (argc < 3 || argc > 3 || !(_isdigit(argv[1])) || !(_isdigit(argv[2])))
+		puts("Error"), exit(98);
+	if (argv[1][0] == '0' || argv[2][0] == '0')
 	{
-	  p = (argv[2][i] - '0') * (argv[1][j] - '0');
-	  res =  (p / 10);
-	  total[(i + j) + 1] += (p % 10);
-	  if (total[(i + j) + 1] > 9)
-	    {
-	      total[i + j] += total[(i + j) + 1] / 10;
-	      total[(i + j) + 1] = total[(i + j) + 1] % 10;
-	    }
-	  total[(i + j)] += res;
+		printf("0\n");
+		return (0);
 	}
-    }
-  if (total[0] == 0)
-    i = 1;
-  else
-    i = 0;
-  for (; i < len; i++)
-    printf("%d", total[i]);
-  printf("\n");
-  free(total);
-  return (0);
+	n1 = _strlen(argv[1]), n2 = _strlen(argv[2]);
+	len = n1 + n2;
+	total = calloc(len, sizeof(int *));
+	if (total == NULL)
+		puts("Error"), exit(98);
+	for (i = (n2 - 1); i > -1; i--)
+	{
+		res = 0;
+		for (j = (n1 - 1); j > -1; j--)
+		{
+			p = (argv[2][i] - '0') * (argv[1][j] - '0');
+			res =  (p / 10);
+			total[(i + j) + 1] += (p % 10);
+			if (total[(i + j) + 1] > 9)
+			{
+				total[i + j] += total[(i + j) + 1] / 10;
+				total[(i + j) + 1] = total[(i + j) + 1] % 10;
+			}
+			total[(i + j)] += res;
+		}
+	}
+	if (total[0] == 0)
+		i = 1;
+	else
+		i = 0;
+	for (; i < len; i++)
+		printf("%d", total[i]);
+	printf("\n");
+	free(total);
+	return (0);
 }
