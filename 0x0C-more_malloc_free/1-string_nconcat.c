@@ -1,44 +1,39 @@
 #include "holberton.h"
 #include <stdlib.h>
-
 /**
- * string_nconcat - Concatenates two strings using at
- *                  most an inputted number of bytes.
- * @s1: The first string.
- * @s2: The second string.
- * @n: The maximum number of bytes of s2 to concatenate to s1.
- *
- * Return: If the function fails - NULL.
- *         Otherwise - a pointer to the concatenated space in memory.
- */
+ * *string_nconcat - concatenates two strings
+ * @s1: first string
+ * @s2: second string
+ * @n: limit of s2
+ * Return: pointer to new space in memory or null
+ **/
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *concat;
-	unsigned int len = n, index;
+	char *strDup;
+	int i;
+	unsigned int j;
 
 	if (s1 == NULL)
 		s1 = "";
-
 	if (s2 == NULL)
 		s2 = "";
-
-	for (index = 0; s1[index]; index++)
-		len++;
-
-	concat = malloc(sizeof(char) * (len + 1));
-
-	if (concat == NULL)
+	i = 0;
+	while (s1[i] != '\0')
+		i++;
+	strDup = malloc(sizeof(char) * (i + n + 1));
+	if (strDup == NULL)
 		return (NULL);
-
-	len = 0;
-
-	for (index = 0; s1[index]; index++)
-		concat[len++] = s1[index];
-
-	for (index = 0; s2[index] && index < n; index++)
-		concat[len++] = s2[index];
-
-	concat[len] = '\0';
-
-	return (concat);
+	i = j = 0;
+	while (s1[i] != '\0')
+	{
+		strDup[i] = s1[i];
+		i++;
+	}
+	while (j < n && s2[j] != '\0')
+	{
+		strDup[i] = s2[j];
+		i++, j++;
+	}
+	strDup[i] = '\0';
+	return (strDup);
 }
