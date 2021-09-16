@@ -8,3 +8,4 @@
 - 5-get_dnodeint.c - that returns the nth node of a dlistint_t linked list.
 - 6-sum_dlistint.c - that returns the sum of all the data (n) of a dlistint_t linked list.
 - 7-insert_dnodeint.c - that inserts a new node at a given position.
+- 8-delete_dnodeint.c - that deletes the node at index index of a dlistint_t linked list.
