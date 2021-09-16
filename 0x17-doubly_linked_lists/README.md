@@ -10,3 +10,4 @@
 - 7-insert_dnodeint.c - that inserts a new node at a given position.
 - 8-delete_dnodeint.c - that deletes the node at index index of a dlistint_t linked list.
 - 100-password - the password for crackme4.
+- 102-result - the largest palindrome made from the product of two 3-digit numbers
